@@ -13,11 +13,6 @@ public class Player : MonoBehaviour {
     private Vector2 velocity;
     private bool canAirJump;
 
-    private float extraWeight;
-    [Header("UI")]
-    [SerializeField]
-    private TextMesh weightText;
-
     private Controller cont;
 
     private void Start()
@@ -55,30 +50,11 @@ public class Player : MonoBehaviour {
 
             cont.Move(velocity * Time.deltaTime);
         }
-
-        weightText.text = "Size: " + extraWeight * 100 + "%";
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            AddWeight();
-        }
     }
 
     private void Die()
     {
         Destroy(gameObject);
-    }
-
-    private void AddWeight()
-    {
-        extraWeight += 0.05f;
-        transform.Translate(Vector2.up * 0.025f);
-        transform.localScale = Vector3.one + Vector3.one * extraWeight;
-        cont.CalculateRaySpacing();
-    }
-
-    private void OnCollisionH()
-    {
-        Die();
     }
 
     private IEnumerator TryJump()

@@ -4,19 +4,37 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-	public enum GameState { NotPlaying, Playing, Paused }
+    #region Singleton
+    public static GameManager Instance()
+    {
+        return FindObjectOfType<GameManager>();
+    }
+    #endregion
+
+    public enum GameState { NotPlaying, Playing, Paused }
     public static GameState gameState = GameState.NotPlaying;
 
     [SerializeField]
-    private float timeTilStart;
+    private float timeTilStart, speedPerPoint;
+
+    private int score;
 
     [Header("UI")]
     [SerializeField]
     private TextMesh timer;
+    [SerializeField]
+    private TextMesh scoreText;
 
     private void Start()
     {
         StartCoroutine(InitGame());
+    }
+
+    private void Update()
+    {
+        Time.timeScale = 1 + score * speedPerPoint;
+
+        scoreText.text = "Score: " + score;
     }
 
     private IEnumerator InitGame()
@@ -40,5 +58,10 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1);
 
         timer.gameObject.SetActive(false);
+    }
+
+    public void AddPoints(int toAdd)
+    {
+        score += toAdd;
     }
 }

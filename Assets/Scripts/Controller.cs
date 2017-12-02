@@ -8,7 +8,7 @@ public class Controller : MonoBehaviour {
     private float skinWidth = 0.01f;
 
     [SerializeField]
-    private LayerMask collisionMask;
+    private LayerMask collisionMask, triggerMask;
     [SerializeField]
     private float unitsPerRay;
     private int horizontalRayCount, verticalRayCount;
@@ -48,6 +48,7 @@ public class Controller : MonoBehaviour {
             Vector2 rayOrigin = (dir == 1) ? raycastOrigins.bottomRight : raycastOrigins.bottomLeft;
             rayOrigin += Vector2.up * horizontalRaySpacing * i;
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.right * dir, rayLength, collisionMask);
+            RaycastHit2D[] triggers = Physics2D.RaycastAll(rayOrigin, Vector2.right * dir, rayLength, triggerMask);
 
             if (hit)
             {
@@ -57,8 +58,10 @@ public class Controller : MonoBehaviour {
                 collInfo.right = dir == 1;
                 collInfo.left = dir == -1;
 
-                SendMessage("OnCollisionH", hit.transform.gameObject, SendMessageOptions.DontRequireReceiver);
+                Collisions(hit, dir, 0);
             }
+            if (triggers.Length != 0)
+                Triggers(triggers, dir, 0);
         }
     }
 
@@ -72,6 +75,7 @@ public class Controller : MonoBehaviour {
             Vector2 rayOrigin = (dir == 1) ? raycastOrigins.topLeft : raycastOrigins.bottomLeft;
             rayOrigin += Vector2.right * verticalRaySpacing * i;
             RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * dir, rayLength, collisionMask);
+            RaycastHit2D[] triggers = Physics2D.RaycastAll(rayOrigin, Vector2.up * dir, rayLength, triggerMask);
 
             if (hit)
             {
@@ -80,6 +84,30 @@ public class Controller : MonoBehaviour {
 
                 collInfo.top = dir == 1;
                 collInfo.bottom = dir == -1;
+
+                Collisions(hit, 0, dir);
+            }
+            if (triggers.Length != 0)
+                Triggers(triggers, 0, dir);
+        }
+    }
+
+    private void Collisions(RaycastHit2D collision, float dirX, float dirY)
+    {
+        if (dirX != 0 && tag == "Player")
+        {
+            SendMessage("Die");
+        }
+    }
+
+    private void Triggers(RaycastHit2D[] triggers, float dirX, float dirY)
+    {
+        foreach (RaycastHit2D trigger in triggers)
+        {
+            if (trigger.transform.tag == "Point" && tag == "Player")
+            {
+                Destroy(trigger.transform.gameObject);
+                GameManager.Instance().AddPoints(1);
             }
         }
     }
