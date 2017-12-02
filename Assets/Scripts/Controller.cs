@@ -56,6 +56,8 @@ public class Controller : MonoBehaviour {
 
                 collInfo.right = dir == 1;
                 collInfo.left = dir == -1;
+
+                SendMessage("OnCollisionH", hit.transform.gameObject, SendMessageOptions.DontRequireReceiver);
             }
         }
     }
@@ -82,7 +84,7 @@ public class Controller : MonoBehaviour {
         }
     }
 
-    private void CalculateRaySpacing()
+    public void CalculateRaySpacing()
     {
         Bounds bounds = coll.bounds;
         bounds.Expand(-2 * skinWidth);

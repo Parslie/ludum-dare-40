@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
         timer.text = "1";
         yield return new WaitForSeconds(1);
         
-        timer.text = "Go!";
+        timer.text = "0";
         gameState = GameState.Playing;
         yield return new WaitForSeconds(1);
 

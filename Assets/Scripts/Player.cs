@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
     private float jumpVelocity, gravity;
     private Vector2 velocity;
 
+    private float extraWeight;
+
     private Controller cont;
 
     private void Start()
@@ -46,6 +48,29 @@ public class Player : MonoBehaviour {
 
             cont.Move(velocity * Time.deltaTime);
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            AddWeight();
+        }
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    private void AddWeight()
+    {
+        extraWeight += 0.05f;
+        transform.Translate(Vector2.up * 0.025f);
+        transform.localScale = Vector3.one + Vector3.one * extraWeight;
+        cont.CalculateRaySpacing();
+    }
+
+    private void OnCollisionH()
+    {
+        Die();
     }
 
     private IEnumerator TryJump()

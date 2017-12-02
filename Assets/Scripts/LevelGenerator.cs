@@ -22,12 +22,13 @@ public class LevelGenerator : MonoBehaviour {
 
     private void Update()
     {
-        if (Vector2.Distance(player.position, nextSpawnPos) <= distanceToSpawn)
+        if (player && Vector2.Distance(player.position, nextSpawnPos) <= distanceToSpawn)
         {
             GameObject tmp = Instantiate(levelPrefabs[Random.Range(0, levelPrefabs.Length)], nextSpawnPos, Quaternion.identity);
             timesSpawned++;
             tmp.name = timesSpawned.ToString();
             nextSpawnPos = GameObject.Find(tmp.name + "/NextSpawn").transform.position;
+            Destroy(tmp, 10);
         }
     }
 
