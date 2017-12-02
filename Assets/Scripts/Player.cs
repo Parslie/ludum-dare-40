@@ -11,8 +11,12 @@ public class Player : MonoBehaviour {
     private float jumpHeight, jumpTime;
     private float jumpVelocity, gravity;
     private Vector2 velocity;
+    private bool canAirJump;
 
     private float extraWeight;
+    [Header("UI")]
+    [SerializeField]
+    private TextMesh weightText;
 
     private Controller cont;
 
@@ -38,7 +42,10 @@ public class Player : MonoBehaviour {
         if (GameManager.gameState == GameManager.GameState.Playing)
         {
             if (cont.collInfo.bottom || cont.collInfo.top)
+            {
                 velocity.y = 0;
+                canAirJump = true;
+            }
             velocity.y -= gravity * Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
             {
@@ -49,6 +56,7 @@ public class Player : MonoBehaviour {
             cont.Move(velocity * Time.deltaTime);
         }
 
+        weightText.text = "Size: " + extraWeight * 100 + "%";
         if (Input.GetKeyDown(KeyCode.A))
         {
             AddWeight();
@@ -77,10 +85,11 @@ public class Player : MonoBehaviour {
     {
         for (float i = 0; i < 0.05f; i += Time.deltaTime)
         {
-            if (cont.collInfo.bottom)
+            if (cont.collInfo.bottom || canAirJump)
             {
                 velocity.y = jumpVelocity;
                 cont.collInfo.bottom = false;
+                canAirJump = false;
                 break;
             }
             yield return new WaitForSeconds(Time.deltaTime);
