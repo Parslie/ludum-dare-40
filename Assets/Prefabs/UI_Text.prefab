@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114134113125133180}
   - component: {fileID: 102447100207398370}
   - component: {fileID: 23671525222802534}
+  - component: {fileID: 114778403887671680}
   m_Layer: 0
   m_Name: UI_Text
   m_TagString: Untagged
@@ -71,8 +72,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1901617853
+  m_SortingLayer: 3
   m_SortingOrder: 0
 --- !u!102 &102447100207398370
 TextMesh:
@@ -109,3 +110,16 @@ MonoBehaviour:
   cam: {fileID: 0}
   origin: 4
   offset: {x: 0, y: 0}
+--- !u!114 &114778403887671680
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694956964384632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdf880e0c2715914eb74357a65519c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerName: UI
+  layerIndex: 0
