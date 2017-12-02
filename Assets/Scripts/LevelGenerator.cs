@@ -28,7 +28,7 @@ public class LevelGenerator : MonoBehaviour {
             timesSpawned++;
             tmp.name = timesSpawned.ToString();
             nextSpawnPos = GameObject.Find(tmp.name + "/NextSpawn").transform.position;
-            Destroy(tmp, 10);
+            Destroy(tmp, 20);
         }
     }
 

@@ -52,6 +52,11 @@ public class Player : MonoBehaviour {
         }
     }
 
+    private void Reverse()
+    {
+        moveSpeed *= -1;
+    }
+
     private void Die()
     {
         Destroy(gameObject);

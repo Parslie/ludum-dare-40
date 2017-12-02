@@ -58,7 +58,10 @@ public class Controller : MonoBehaviour {
                 collInfo.right = dir == 1;
                 collInfo.left = dir == -1;
 
-                Collisions(hit, dir, 0);
+                bool breakLoop = false;
+                Collisions(hit, dir, 0, ref breakLoop);
+                if (breakLoop)
+                    break;
             }
             if (triggers.Length != 0)
                 Triggers(triggers, dir, 0);
@@ -85,19 +88,25 @@ public class Controller : MonoBehaviour {
                 collInfo.top = dir == 1;
                 collInfo.bottom = dir == -1;
 
-                Collisions(hit, 0, dir);
+                bool breakLoop = false;
+                Collisions(hit, 0, dir, ref breakLoop);
+                if (breakLoop)
+                    break;
             }
             if (triggers.Length != 0)
                 Triggers(triggers, 0, dir);
         }
     }
 
-    private void Collisions(RaycastHit2D collision, float dirX, float dirY)
+    private void Collisions(RaycastHit2D collision, float dirX, float dirY, ref bool breakLoop)
     {
-        if (dirX != 0 && tag == "Player")
+        if (dirX != 0 && collision.transform.tag == "Reverser" && tag == "Player")
         {
-            SendMessage("Die");
+            SendMessage("Reverse");
+            breakLoop = true;
         }
+        else if (dirX != 0 && tag == "Player")
+            SendMessage("Die");
     }
 
     private void Triggers(RaycastHit2D[] triggers, float dirX, float dirY)
