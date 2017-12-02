@@ -7,11 +7,6 @@ public class TitleScreen : MonoBehaviour {
     [SerializeField]
     private string inGameSceneName;
 
-    private void Start()
-    {
-        Application.targetFrameRate = 80;
-    }
-
     private void Update()
     {
         if (Input.anyKeyDown)

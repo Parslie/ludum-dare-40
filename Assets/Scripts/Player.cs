@@ -38,10 +38,27 @@ public class Player : MonoBehaviour {
             if (cont.collInfo.bottom || cont.collInfo.top)
                 velocity.y = 0;
             velocity.y -= gravity * Time.deltaTime;
-            if (cont.collInfo.bottom && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)))
-                velocity.y = jumpVelocity;
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                StopAllCoroutines();
+                StartCoroutine(TryJump());
+            }
 
             cont.Move(velocity * Time.deltaTime);
+        }
+    }
+
+    private IEnumerator TryJump()
+    {
+        for (float i = 0; i < 0.05f; i += Time.deltaTime)
+        {
+            if (cont.collInfo.bottom)
+            {
+                velocity.y = jumpVelocity;
+                cont.collInfo.bottom = false;
+                break;
+            }
+            yield return new WaitForSeconds(Time.deltaTime);
         }
     }
 }
