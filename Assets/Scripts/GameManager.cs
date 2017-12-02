@@ -32,8 +32,6 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        Time.timeScale = 1 + score * speedPerPoint;
-
         scoreText.text = "Score: " + score;
     }
 
@@ -63,5 +61,6 @@ public class GameManager : MonoBehaviour {
     public void AddPoints(int toAdd)
     {
         score += toAdd;
+        Time.timeScale = 1 + score * speedPerPoint;
     }
 }
