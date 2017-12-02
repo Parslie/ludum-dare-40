@@ -30,6 +30,8 @@ public class Controller : MonoBehaviour {
         collInfo.Reset();
         CalculateRayOrigins();
 
+        if (velocity.x != 0)
+            HorizontalRayCasting(ref velocity);
         if (velocity.y != 0)
             VerticalRayCasting(ref velocity);
 
