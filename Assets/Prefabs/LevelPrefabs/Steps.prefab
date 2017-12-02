@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4220429901821426}
   - component: {fileID: 212973573454752396}
   - component: {fileID: 61105583794465816}
+  - component: {fileID: 114551810949609490}
   m_Layer: 9
   m_Name: Ground (2)
   m_TagString: Grass
@@ -53,6 +54,7 @@ GameObject:
   - component: {fileID: 4792741833485016}
   - component: {fileID: 212786885698513324}
   - component: {fileID: 61871324390060512}
+  - component: {fileID: 114739269096819698}
   m_Layer: 9
   m_Name: Ground
   m_TagString: Grass
@@ -70,6 +72,7 @@ GameObject:
   - component: {fileID: 4279690079179788}
   - component: {fileID: 212820834369095160}
   - component: {fileID: 61095813195012140}
+  - component: {fileID: 114194478874562880}
   m_Layer: 9
   m_Name: Dirt (2)
   m_TagString: Untagged
@@ -87,6 +90,7 @@ GameObject:
   - component: {fileID: 4157382709300274}
   - component: {fileID: 212805011844092974}
   - component: {fileID: 61269556176494214}
+  - component: {fileID: 114801967710384946}
   m_Layer: 9
   m_Name: Dirt
   m_TagString: Untagged
@@ -119,6 +123,7 @@ GameObject:
   - component: {fileID: 4285623361458584}
   - component: {fileID: 212654670319049816}
   - component: {fileID: 61021737572290568}
+  - component: {fileID: 114746482205609640}
   m_Layer: 9
   m_Name: Dirt (1)
   m_TagString: Untagged
@@ -136,6 +141,7 @@ GameObject:
   - component: {fileID: 4902976240998170}
   - component: {fileID: 212142514256959048}
   - component: {fileID: 61703990218976476}
+  - component: {fileID: 114362307496345092}
   m_Layer: 9
   m_Name: Ground (1)
   m_TagString: Grass
@@ -404,6 +410,72 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &114194478874562880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1689476435304560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b042ccdffe1df146a789718d8cb26ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114362307496345092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1970274369005070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b042ccdffe1df146a789718d8cb26ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114551810949609490
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515361340704088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b042ccdffe1df146a789718d8cb26ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114739269096819698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1569081180473568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b042ccdffe1df146a789718d8cb26ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114746482205609640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1958740929562764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b042ccdffe1df146a789718d8cb26ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114801967710384946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1798560321293812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b042ccdffe1df146a789718d8cb26ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212142514256959048
 SpriteRenderer:
   m_ObjectHideFlags: 1
