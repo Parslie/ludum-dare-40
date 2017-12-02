@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     public static GameState gameState = GameState.NotPlaying;
 
     [SerializeField]
-    private float timeTilStart, speedPerPoint, maxSpeed;
+    private float timeTilStart, speedPerPoint;
 
     private int score;
 
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
     private void Update()
     {
         scoreText.text = "Score: " + score;
-        speedText.text = "Speed: " + Time.timeScale + ":1";
+        speedText.text = "Speed: " + Time.timeScale * 100 + "%";
     }
 
     private IEnumerator InitGame()
