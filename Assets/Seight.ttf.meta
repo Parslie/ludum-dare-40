@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 88498275a2e8e0a4a868ffefa12771cc
+timeCreated: 1512205538
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Seight
+  fontNames:
+  - Seight
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
