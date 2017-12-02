@@ -544,7 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 9
   jumpHeight: 3
-  jumpTime: 0.3
+  jumpTime: 0.28
 --- !u!114 &633298629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1256,7 +1256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeTilStart: 5
-  speedPerPoint: 0.01
+  speedPerPoint: 0.0125
   timer: {fileID: 1142767495}
   scoreText: {fileID: 615542858}
   speedText: {fileID: 669030495}

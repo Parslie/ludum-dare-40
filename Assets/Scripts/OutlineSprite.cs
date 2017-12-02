@@ -11,6 +11,8 @@ public class OutlineSprite : MonoBehaviour {
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer.drawMode == SpriteDrawMode.Simple)
+            spriteRenderer.size = Vector2.one;
 
         outlines[0] = new GameObject("OutlineTop", typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();
         outlines[1] = new GameObject("OutlineRight", typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();

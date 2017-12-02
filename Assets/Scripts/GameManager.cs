@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
     private void Update()
     {
         scoreText.text = "Score: " + score;
-        speedText.text = "Speed: " + Time.timeScale * 100 + "%";
+        speedText.text = string.Format("Speed: {0:0.0}%", Time.timeScale * 100);
     }
 
     private IEnumerator InitGame()
