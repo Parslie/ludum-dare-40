@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
     public static GameState gameState = GameState.NotPlaying;
 
     [SerializeField]
-    private float timeTilStart, speedPerPoint;
+    private float timeTilStart, speedPerPoint, maxSpeed;
 
     private int score;
 
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private TextMesh timer;
     [SerializeField]
-    private TextMesh scoreText;
+    private TextMesh scoreText, speedText;
 
     private void Start()
     {
@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
     private void Update()
     {
         scoreText.text = "Score: " + score;
+        speedText.text = "Speed: " + Time.timeScale + ":1";
     }
 
     private IEnumerator InitGame()
