@@ -489,6 +489,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c,
     type: 2}
   m_PrefabInternal: {fileID: 1142767493}
+--- !u!102 &1142767495 stripped
+TextMesh:
+  m_PrefabParentObject: {fileID: 102447100207398370, guid: 4caf090ebf980df4b878d3a641fa368c,
+    type: 2}
+  m_PrefabInternal: {fileID: 1142767493}
 --- !u!1 &1812034842
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,3 +535,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1afedef441b50741bde1cfe59e23a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeTilStart: 5
+  timer: {fileID: 1142767495}
