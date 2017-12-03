@@ -8,6 +8,9 @@ public class OutlineSprite : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer[] outlines = new SpriteRenderer[4];
 
+    [SerializeField]
+    private bool updateOutlines;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -27,6 +30,7 @@ public class OutlineSprite : MonoBehaviour {
             outline.color = Color.black;
             outline.sortingOrder = spriteRenderer.sortingOrder - 5000;
             outline.sortingLayerID = spriteRenderer.sortingLayerID;
+            outline.transform.rotation = spriteRenderer.transform.rotation;
         }
 
         outlines[0].transform.Translate(Vector2.up * 0.1f);
@@ -37,9 +41,8 @@ public class OutlineSprite : MonoBehaviour {
 
     private void Update()
     {
-        foreach (SpriteRenderer outline in outlines)
-        {
-            outline.sprite = spriteRenderer.sprite;
-        }
+        if (updateOutlines)
+            foreach (SpriteRenderer outline in outlines)
+                outline.sprite = spriteRenderer.sprite;
     }
 }

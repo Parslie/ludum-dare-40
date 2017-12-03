@@ -66,7 +66,7 @@ public class Player : MonoBehaviour {
         gravity *= -1;
         jumpVelocity *= -1;
 
-        anim.transform.localScale = (gravity < 0) ? Vector3.right * 180 : Vector3.zero;
+        anim.transform.eulerAngles = (gravity < 0) ? Vector3.right * 180 : Vector3.zero;
     }
 
     private void Die()
