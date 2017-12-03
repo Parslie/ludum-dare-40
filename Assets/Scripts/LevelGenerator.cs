@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour {
 
+    #region Singleton
+    public static LevelGenerator Instance()
+    {
+        return FindObjectOfType<LevelGenerator>();
+    }
+    #endregion
+
     [SerializeField]
     private GameObject[] levelPrefabs;
     private int timesSpawned;
@@ -13,6 +20,7 @@ public class LevelGenerator : MonoBehaviour {
     [SerializeField]
     private float distanceToSpawn;
 
+    private bool inverseGravity;
     private Transform player;
 
     private void Start()
@@ -27,6 +35,10 @@ public class LevelGenerator : MonoBehaviour {
             GameObject tmp = Instantiate(levelPrefabs[Random.Range(0, levelPrefabs.Length)], nextSpawnPos, Quaternion.identity);
             timesSpawned++;
             tmp.name = timesSpawned.ToString();
+
+            if (inverseGravity)
+                tmp.transform.rotation = Quaternion.Euler(180, 0, 0);
+
             nextSpawnPos = GameObject.Find(tmp.name + "/NextSpawn").transform.position;
         }
     }
@@ -36,5 +48,10 @@ public class LevelGenerator : MonoBehaviour {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(nextSpawnPos, 0.25f);
         Gizmos.DrawLine(nextSpawnPos, nextSpawnPos + Vector2.left * distanceToSpawn);
+    }
+    
+    public void InverseGravity()
+    {
+        inverseGravity = !inverseGravity;
     }
 }

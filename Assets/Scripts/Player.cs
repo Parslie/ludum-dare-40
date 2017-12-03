@@ -13,6 +13,10 @@ public class Player : MonoBehaviour {
     private Vector2 velocity;
     private bool canAirJump;
 
+    [Header("Graphics")]
+    [SerializeField]
+    private Animator anim;
+
     private Controller cont;
 
     private void Start()
@@ -42,7 +46,7 @@ public class Player : MonoBehaviour {
                 canAirJump = true;
             }
             velocity.y -= gravity * Time.deltaTime;
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow))
+            if (Input.GetKeyDown(KeyCode.DownArrow) && gravity < 0 || Input.GetKeyDown(KeyCode.UpArrow) && gravity > 0)
             {
                 StopAllCoroutines();
                 StartCoroutine(TryJump());
@@ -57,6 +61,14 @@ public class Player : MonoBehaviour {
         moveSpeed *= -1;
     }
 
+    private void InverseGravity()
+    {
+        gravity *= -1;
+        jumpVelocity *= -1;
+
+        anim.transform.localScale = (gravity < 0) ? Vector3.right * 180 : Vector3.zero;
+    }
+
     private void Die()
     {
         Destroy(gameObject);
@@ -66,10 +78,11 @@ public class Player : MonoBehaviour {
     {
         for (float i = 0; i < 0.05f; i += Time.deltaTime)
         {
-            if (cont.collInfo.bottom || canAirJump)
+            if (cont.collInfo.bottom && gravity > 0 || cont.collInfo.top && gravity < 0 || canAirJump)
             {
                 velocity.y = jumpVelocity;
                 cont.collInfo.bottom = false;
+                cont.collInfo.top = false;
                 canAirJump = false;
                 break;
             }

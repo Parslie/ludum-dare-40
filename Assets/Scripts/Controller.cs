@@ -118,10 +118,16 @@ public class Controller : MonoBehaviour {
                 Destroy(trigger.transform.gameObject);
                 GameManager.Instance().AddPoints(1);
             }
+            else if (trigger.transform.tag == "Inverser" && tag == "Player")
+            {
+                SendMessage("InverseGravity");
+                LevelGenerator.Instance().InverseGravity();
+                trigger.collider.enabled = false;
+            }
         }
     }
 
-    public void CalculateRaySpacing()
+    private void CalculateRaySpacing()
     {
         Bounds bounds = coll.bounds;
         bounds.Expand(-2 * skinWidth);
