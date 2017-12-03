@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 4177557977760770}
   - component: {fileID: 212251306490781922}
   - component: {fileID: 114198178630217322}
+  - component: {fileID: 114688674522913272}
   m_Layer: 10
   m_Name: Graphics
   m_TagString: Untagged
@@ -180,7 +181,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834287048956314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.25, y: 3.6, z: 0}
+  m_LocalPosition: {x: 6.25, y: 3.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4177557977760770}
@@ -454,6 +455,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   updateOutlines: 0
+--- !u!114 &114688674522913272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1436707641138884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f74b6271778194db591b17ef4e0f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floatAmount: 0.1
+  speed: 1
 --- !u!212 &212251306490781922
 SpriteRenderer:
   m_ObjectHideFlags: 1

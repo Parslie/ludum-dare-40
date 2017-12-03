@@ -54,8 +54,9 @@ public class SceneHandler : MonoBehaviour {
     {
         maskSizeStart = overlaySize;
         maskSizeEnd = 0;
-        t = 0;
-        overlayMask.transform.localScale = Vector2.one * Mathf.Lerp(maskSizeStart, maskSizeEnd, t);
+        if (levelName == "")
+            t = 0;
+        overlayMask.transform.localScale = Vector2.one * Mathf.Lerp(maskSizeStart, maskSizeEnd, Mathf.SmoothStep(0, 1, t));
         overlayMask.gameObject.SetActive(true);
         overlay.gameObject.SetActive(true);
 

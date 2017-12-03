@@ -26,7 +26,10 @@ public class TitleScreen : MonoBehaviour {
     private void Update()
     {
         if (Input.anyKeyDown && !Input.GetMouseButton(0) && !Input.GetMouseButton(1) && !Input.GetMouseButton(2))
+        {
+            AudioManager.Instance().SelectSound();
             SceneHandler.Instance().ChangeScene(inGameSceneName);
+        }
 
         if (Time.time >= timeToBlink)
         {

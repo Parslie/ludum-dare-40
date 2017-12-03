@@ -102,6 +102,7 @@ public class Controller : MonoBehaviour {
     {
         if (dirX != 0 && collision.transform.tag == "Reverser" && tag == "Player")
         {
+            AudioManager.Instance().BoingSound();
             SendMessage("Reverse");
             breakLoop = true;
         }
@@ -118,6 +119,7 @@ public class Controller : MonoBehaviour {
                 Destroy(trigger.transform.gameObject);
                 GameManager.Instance().AddToMultiplier(0.1f);
                 Time.timeScale += 0.035f;
+                AudioManager.Instance().PointSound();
             }
             else if (trigger.transform.tag == "Inverser" && tag == "Player")
             {

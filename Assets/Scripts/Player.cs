@@ -87,6 +87,7 @@ public class Player : MonoBehaviour {
     {
         GameManager.gameState = GameManager.GameState.NotPlaying;
         GameManager.Instance().GameOver();
+        AudioManager.Instance().DeathSound();
         Destroy(gameObject);
     }
 
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour {
         {
             if (cont.collInfo.bottom && gravity > 0 || cont.collInfo.top && gravity < 0 || canAirJump)
             {
+                AudioManager.Instance().JumpSound();
                 velocity.y = jumpVelocity;
                 cont.collInfo.bottom = false;
                 cont.collInfo.top = false;

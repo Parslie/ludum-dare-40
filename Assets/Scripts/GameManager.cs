@@ -40,13 +40,17 @@ public class GameManager : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            AudioManager.Instance().SelectSound();
             SceneHandler.Instance().ChangeScene("TitleScreen");
+        }
     }
 
     private IEnumerator InitGame()
     {
         timer.gameObject.SetActive(false);
         gameOverText.gameObject.SetActive(false);
+        gameState = GameState.NotPlaying;
         scoreMultiplier = 1;
         scoreText.text = "Score\n" + (int)score + string.Format(" (x{0:0.00})", scoreMultiplier);
         speedText.text = string.Format("Speed\n{0:0.0}%", Time.timeScale * 100);
@@ -94,7 +98,7 @@ public class GameManager : MonoBehaviour
         gameOverText.gameObject.SetActive(true);
         for (float i = 0; i < 1; i += Time.deltaTime * 1.6f)
         {
-            gameOverText.transform.localScale = Vector3.one * i;
+            gameOverText.transform.localScale = Vector3.one * Mathf.SmoothStep(0, 1, i);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         gameOverText.transform.localScale = Vector3.one;
@@ -102,7 +106,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.6f);
         for (float i = 0; i < 1; i += Time.deltaTime * 1.6f)
         {
-            gameOverText.transform.localScale = Vector3.one - Vector3.one * i;
+            gameOverText.transform.localScale = Vector3.one - Vector3.one * Mathf.SmoothStep(0, 1, i);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         gameOverText.transform.localScale = Vector3.zero;
