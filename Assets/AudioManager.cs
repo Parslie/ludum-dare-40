@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour {
 
     [SerializeField]
     private GameObject pointSound, jumpSound, deathSound, selectSound, boingSound;
+    [SerializeField]
+    private AudioSource startUpSound;
 
     public void PointSound()
     {
@@ -41,6 +43,13 @@ public class AudioManager : MonoBehaviour {
     public void SelectSound()
     {
         GameObject sound = Instantiate(selectSound, transform.position, Quaternion.identity, transform);
+        Destroy(sound.gameObject, 10);
+    }
+
+    public void StartUpSound(float pitch)
+    {
+        AudioSource sound = Instantiate(startUpSound, transform.position, Quaternion.identity, transform) as AudioSource;
+        sound.pitch = pitch;
         Destroy(sound.gameObject, 10);
     }
 }

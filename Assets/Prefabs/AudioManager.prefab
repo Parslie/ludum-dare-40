@@ -54,6 +54,8 @@ MonoBehaviour:
   pointSound: {fileID: 1708019799866346, guid: f3ff403e00ff0e64492130a1a681d465, type: 2}
   jumpSound: {fileID: 1851977439705552, guid: afab692d7a20ca745ae908c5ff001b0e, type: 2}
   deathSound: {fileID: 1685896673629782, guid: 851659683171a2542b53b3a8bc365cf5, type: 2}
-  selectSound: {fileID: 1851977439705552, guid: afab692d7a20ca745ae908c5ff001b0e,
+  selectSound: {fileID: 1708019799866346, guid: 24720c9229a37a94b90dbe3f39711cc8,
     type: 2}
   boingSound: {fileID: 1708019799866346, guid: cd8c26592e4253a49982c3deba4ae739, type: 2}
+  startUpSound: {fileID: 82566165525283194, guid: 24720c9229a37a94b90dbe3f39711cc8,
+    type: 2}

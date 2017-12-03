@@ -12,7 +12,7 @@ public class OutlineSprite : MonoBehaviour
     [SerializeField]
     private bool updateOutlines;
 
-    private void Start()
+    private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer.drawMode == SpriteDrawMode.Simple)
