@@ -8,6 +8,8 @@ public class TitleScreen : MonoBehaviour {
     private string inGameSceneName;
 
     [SerializeField]
+    private Transform checkeredPattern;
+    [SerializeField]
     private TextMesh highScore;
     [SerializeField]
     private GameObject pressAnyTo;
@@ -31,5 +33,9 @@ public class TitleScreen : MonoBehaviour {
             pressAnyTo.SetActive(!pressAnyTo.activeSelf);
             timeToBlink = Time.time + 1 / blinksPerSec;
         }
+
+        checkeredPattern.position -= (Vector3)Vector2.one * 0.5f * Time.deltaTime;
+        if (checkeredPattern.position.x < -1)
+            checkeredPattern.position += (Vector3)Vector2.one;
     }
 }
