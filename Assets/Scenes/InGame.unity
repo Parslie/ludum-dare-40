@@ -575,7 +575,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0225c27231b0f2b4cbe9ef29653abd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9.25
+  moveSpeed: 9.1
   jumpHeight: 3
   jumpTime: 0.275
   anim: {fileID: 1008157416}
@@ -1126,6 +1126,10 @@ Prefab:
     - target: {fileID: 4052231471076194, guid: e486ac7260f4cdc4489ed5d584ac8af0, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068202177132946, guid: e486ac7260f4cdc4489ed5d584ac8af0, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e486ac7260f4cdc4489ed5d584ac8af0, type: 2}

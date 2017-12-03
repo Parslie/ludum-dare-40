@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class OutlineSprite : MonoBehaviour {
+public class OutlineSprite : MonoBehaviour
+{
 
     private SpriteRenderer spriteRenderer;
     private SpriteRenderer[] outlines = new SpriteRenderer[4];
@@ -21,7 +22,7 @@ public class OutlineSprite : MonoBehaviour {
         outlines[1] = new GameObject("OutlineRight", typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();
         outlines[2] = new GameObject("OutlineBottom", typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();
         outlines[3] = new GameObject("OutlineLeft", typeof(SpriteRenderer)).GetComponent<SpriteRenderer>();
-        
+
         foreach (SpriteRenderer outline in outlines)
         {
             outline.transform.parent = transform;
