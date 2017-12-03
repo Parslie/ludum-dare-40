@@ -30,7 +30,7 @@ public class LevelGenerator : MonoBehaviour {
 
     private void Update()
     {
-        if (player && Vector2.Distance(player.position, nextSpawnPos) <= distanceToSpawn)
+        if (player && nextSpawnPos.x - player.position.x <= distanceToSpawn)
         {
             GameObject tmp = Instantiate(levelPrefabs[Random.Range(0, levelPrefabs.Length)], nextSpawnPos, Quaternion.identity);
             timesSpawned++;
