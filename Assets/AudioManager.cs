@@ -15,6 +15,20 @@ public class AudioManager : MonoBehaviour {
     private GameObject pointSound, jumpSound, deathSound, selectSound, boingSound;
     [SerializeField]
     private AudioSource startUpSound;
+    
+    [SerializeField]
+    private AudioSource preBeat, beat;
+
+    private void Start()
+    {
+        preBeat.Play();
+    }
+
+    private void Update()
+    {
+        if (!preBeat.isPlaying && !beat.isPlaying)
+            beat.Play();
+    }
 
     public void PointSound()
     {

@@ -107,7 +107,10 @@ public class Controller : MonoBehaviour {
             breakLoop = true;
         }
         else if (dirX != 0 && tag == "Player")
+        {
+            breakLoop = true;
             SendMessage("Die");
+        }
     }
 
     private void Triggers(RaycastHit2D[] triggers, float dirX, float dirY)
@@ -118,7 +121,7 @@ public class Controller : MonoBehaviour {
             {
                 Destroy(trigger.transform.gameObject);
                 GameManager.Instance().AddToMultiplier(0.1f);
-                Time.timeScale += 0.035f;
+                Time.timeScale += 0.05f;
                 AudioManager.Instance().PointSound();
             }
             else if (trigger.transform.tag == "Inverser" && tag == "Player")

@@ -223,7 +223,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -15.8
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -357,8 +357,6 @@ Prefab:
       propertyPath: m_Text
       value: 'GAME
 
-        ------
-
         OVER'
       objectReference: {fileID: 0}
     - target: {fileID: 102447100207398370, guid: 4caf090ebf980df4b878d3a641fa368c,
@@ -393,7 +391,7 @@ Prefab:
     - target: {fileID: 102447100207398370, guid: 4caf090ebf980df4b878d3a641fa368c,
         type: 2}
       propertyPath: m_LineSpacing
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114134113125133180, guid: 4caf090ebf980df4b878d3a641fa368c,
         type: 2}
@@ -587,9 +585,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0225c27231b0f2b4cbe9ef29653abd0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 9.1
+  moveSpeed: 10.5
   jumpHeight: 3
-  jumpTime: 0.275
+  jumpTime: 0.23834
   anim: {fileID: 1008157416}
 --- !u!114 &633298629
 MonoBehaviour:
@@ -757,7 +755,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 15.9
+      value: 11.099999
       objectReference: {fileID: 0}
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -2158,7 +2156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1afedef441b50741bde1cfe59e23a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTilStart: 5
+  timeTilStart: 7
   timer: {fileID: 1142767495}
   scoreText: {fileID: 615542858}
   speedText: {fileID: 669030495}
