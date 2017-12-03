@@ -121,7 +121,7 @@ public class Controller : MonoBehaviour {
             {
                 Destroy(trigger.transform.gameObject);
                 GameManager.Instance().AddToMultiplier(0.1f);
-                Time.timeScale += 0.05f;
+                Time.timeScale += 0.045f;
                 AudioManager.Instance().PointSound();
             }
             else if (trigger.transform.tag == "Inverser" && tag == "Player")
