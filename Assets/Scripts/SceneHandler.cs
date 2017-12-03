@@ -30,15 +30,19 @@ public class SceneHandler : MonoBehaviour {
 
     private void Update()
     {
-        if (t != 1)
-            t += Time.deltaTime * 1.25f;
-        if (t > 1)
-            t = 1;
-
         overlayMask.transform.localScale = Vector2.one * Mathf.Lerp(maskSizeStart, maskSizeEnd, t);
 
         if (levelName != "" && overlayMask.transform.localScale.x == maskSizeEnd)
             LoadScene();
+
+        if (t != 1)
+            t += Time.deltaTime * 1.25f;
+        if (t > 1 && levelName == "")
+        {
+            t = 1;
+            overlayMask.gameObject.SetActive(false);
+            overlay.gameObject.SetActive(false);
+        }
     }
 
     private void LoadScene()
@@ -52,6 +56,8 @@ public class SceneHandler : MonoBehaviour {
         maskSizeEnd = 0;
         t = 0;
         overlayMask.transform.localScale = Vector2.one * Mathf.Lerp(maskSizeStart, maskSizeEnd, t);
+        overlayMask.gameObject.SetActive(true);
+        overlay.gameObject.SetActive(true);
 
         this.levelName = levelName;
     }

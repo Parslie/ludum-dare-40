@@ -51,7 +51,6 @@ public class Player : MonoBehaviour {
             velocity.y -= gravity * Time.deltaTime;
             if (Input.GetKeyDown(KeyCode.DownArrow) && gravity < 0 || Input.GetKeyDown(KeyCode.UpArrow) && gravity > 0)
             {
-                StopAllCoroutines();
                 StartCoroutine(TryJump());
             }
 
@@ -80,12 +79,14 @@ public class Player : MonoBehaviour {
 
     private void Die()
     {
+        GameManager.gameState = GameManager.GameState.NotPlaying;
+        GameManager.Instance().GameOver();
         Destroy(gameObject);
     }
 
     private IEnumerator TryJump()
     {
-        for (float i = 0; i < 0.05f; i += Time.deltaTime)
+        for (float i = 0; i < 0.075f; i += Time.deltaTime)
         {
             if (cont.collInfo.bottom && gravity > 0 || cont.collInfo.top && gravity < 0 || canAirJump)
             {

@@ -117,7 +117,7 @@ public class Controller : MonoBehaviour {
             {
                 Destroy(trigger.transform.gameObject);
                 GameManager.Instance().AddToMultiplier(0.1f);
-                Time.timeScale += 0.025f;
+                Time.timeScale += 0.02f;
             }
             else if (trigger.transform.tag == "Inverser" && tag == "Player")
             {
