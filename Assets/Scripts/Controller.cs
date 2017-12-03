@@ -116,7 +116,8 @@ public class Controller : MonoBehaviour {
             if (trigger.transform.tag == "Point" && tag == "Player")
             {
                 Destroy(trigger.transform.gameObject);
-                GameManager.Instance().AddPoints(1);
+                GameManager.Instance().AddToMultiplier(0.1f);
+                Time.timeScale += 0.025f;
             }
             else if (trigger.transform.tag == "Inverser" && tag == "Player")
             {

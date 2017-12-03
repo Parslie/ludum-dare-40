@@ -31,6 +31,7 @@ public class OutlineSprite : MonoBehaviour {
             outline.sortingOrder = spriteRenderer.sortingOrder - 5000;
             outline.sortingLayerID = spriteRenderer.sortingLayerID;
             outline.transform.rotation = spriteRenderer.transform.rotation;
+            outline.sprite = spriteRenderer.sprite;
         }
 
         outlines[0].transform.Translate(Vector2.up * 0.1f);

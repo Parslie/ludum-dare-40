@@ -11,13 +11,13 @@ public class GameManager : MonoBehaviour {
     }
     #endregion
 
-    public enum GameState { NotPlaying, Playing, Paused }
+    public enum GameState { NotPlaying, Playing }
     public static GameState gameState = GameState.NotPlaying;
 
     [SerializeField]
-    private float timeTilStart, speedPerPoint;
+    private float timeTilStart;
 
-    private int score;
+    private float score, scoreMultiplier;
 
     [Header("UI")]
     [SerializeField]
@@ -32,13 +32,14 @@ public class GameManager : MonoBehaviour {
 
     private void Update()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + (int)score + string.Format(" (x{0:0.00})", scoreMultiplier);
         speedText.text = string.Format("Speed: {0:0.0}%", Time.timeScale * 100);
     }
 
     private IEnumerator InitGame()
     {
         timer.gameObject.SetActive(false);
+        scoreMultiplier = 1;
 
         yield return new WaitForSeconds(timeTilStart - 3);
 
@@ -59,9 +60,13 @@ public class GameManager : MonoBehaviour {
         timer.gameObject.SetActive(false);
     }
 
-    public void AddPoints(int toAdd)
+    public void AddToMultiplier(float toAdd)
+    {
+        scoreMultiplier += toAdd;
+    }
+
+    public void AddPoints(float toAdd)
     {
         score += toAdd;
-        Time.timeScale = 1 + score * speedPerPoint;
     }
 }

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
     private float jumpVelocity, gravity;
     private Vector2 velocity;
     private bool canAirJump;
+    private float distanceCleared;
 
     [Header("Graphics")]
     [SerializeField]
@@ -27,6 +28,8 @@ public class Player : MonoBehaviour {
         gravity = jumpHeight / (0.5f * Mathf.Pow(jumpTime, 2));
         // v = a * t
         jumpVelocity = gravity * jumpTime;
+
+        distanceCleared = transform.position.x;
     }
 
     private void Update()
@@ -53,6 +56,12 @@ public class Player : MonoBehaviour {
             }
 
             cont.Move(velocity * Time.deltaTime);
+
+            if (transform.position.x > distanceCleared)
+            {
+                GameManager.Instance().AddPoints(transform.position.x - distanceCleared);
+                distanceCleared = transform.position.x;
+            }
         }
     }
 

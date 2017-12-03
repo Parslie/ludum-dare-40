@@ -221,11 +221,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -10.400001
+      value: -14
       objectReference: {fileID: 0}
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -545,11 +545,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 10.5
+      value: 14.099999
       objectReference: {fileID: 0}
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 8.5
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4949780511027486, guid: 4caf090ebf980df4b878d3a641fa368c, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1388,7 +1388,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeTilStart: 5
-  speedPerPoint: 0.0125
   timer: {fileID: 1142767495}
   scoreText: {fileID: 615542858}
   speedText: {fileID: 669030495}
