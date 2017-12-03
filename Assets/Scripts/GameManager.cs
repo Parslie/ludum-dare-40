@@ -38,6 +38,9 @@ public class GameManager : MonoBehaviour
             scoreText.text = "Score\n" + (int)score + string.Format(" (x{0:0.00})", scoreMultiplier);
             speedText.text = string.Format("Speed\n{0:0.0}%", Time.timeScale * 100);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneHandler.Instance().ChangeScene("TitleScreen");
     }
 
     private IEnumerator InitGame()

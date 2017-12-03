@@ -35,6 +35,13 @@ public class Player : MonoBehaviour {
     private void Update()
     {
         Movement();
+        Animations();
+    }
+
+    private void Animations()
+    {
+        anim.SetBool("isFalling", !cont.collInfo.bottom && gravity > 0 || !cont.collInfo.top && gravity < 0);
+        anim.SetBool("isMoving", velocity.x != 0);
     }
 
     private void Movement()
