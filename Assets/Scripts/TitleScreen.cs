@@ -34,6 +34,9 @@ public class TitleScreen : MonoBehaviour {
             timeToBlink = Time.time + 1 / blinksPerSec;
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
         checkeredPattern.position -= (Vector3)Vector2.one * 0.5f * Time.deltaTime;
         if (checkeredPattern.position.x < -1)
             checkeredPattern.position += (Vector3)Vector2.one;
