@@ -42,6 +42,7 @@ public class Player : MonoBehaviour {
     {
         anim.SetBool("isFalling", !cont.collInfo.bottom && gravity > 0 || !cont.collInfo.top && gravity < 0);
         anim.SetBool("isMoving", velocity.x != 0);
+        anim.transform.eulerAngles = new Vector3(((gravity < 0) ? 180 : 0), ((velocity.x < 0) ? 180 : 0));
     }
 
     private void Movement()
@@ -80,8 +81,6 @@ public class Player : MonoBehaviour {
     {
         gravity *= -1;
         jumpVelocity *= -1;
-
-        anim.transform.eulerAngles = (gravity < 0) ? Vector3.right * 180 : Vector3.zero;
     }
 
     private void Die()
